@@ -101,3 +101,18 @@ createpost({ title: 'post four', body: 'this is post four' })
 
     }).catch(err => console.log(err))
 
+
+
+function updatelastactivitytime() {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            let time = new Date().getTime();
+            resolve(time);
+        }, 1000)
+    })
+
+}
+
+Promise.all([createpost, updatelastactivitytime]).then(([createpostresolev, activityresolve]) => {
+    console.log(activityresolve)
+})
